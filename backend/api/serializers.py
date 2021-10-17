@@ -15,13 +15,14 @@ class UserSerializers(selializers.ModelSerializer):
             Token.object.create(user=user)
             return user
 
-    class TaskSerializer(selializers.HyperlinkModelSelializer):
 
-        created_at = selializers.DateTimeField(
-            format="%Y-%m-%d %H:%M", read_only=True)
-        updated_at = selializers.DateTimeField(
-            format="%Y-%m-%d %H:%M", read_only=True)
+class TaskSerializer(selializers.HyperlinkModelSelializer):
 
-        class Meta:
-            model = Task
-            fileld = ['id', 'title', 'created_at', 'updated_at']
+    created_at = selializers.DateTimeField(
+        format="%Y-%m-%d %H:%M", read_only=True)
+    updated_at = selializers.DateTimeField(
+        format="%Y-%m-%d %H:%M", read_only=True)
+
+    class Meta:
+        model = Task
+        fileld = ['id', 'title', 'created_at', 'updated_at']
