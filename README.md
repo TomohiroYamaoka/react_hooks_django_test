@@ -3,8 +3,8 @@
 ## バックエンド
 $python3 -m venv .venv  
 $source .venv/bin/activate  
-$$touch requirements.txt  
-pip install -r requirements.txt  
+$touch requirements.txt  
+$pip install -r requirements.txt  
 $django-admin startproject config .  
 $django-admin startapp アプリ名  
 $python3 manage.py createsuperuser  
@@ -19,7 +19,6 @@ $npx create-react-app {プロジェクト名}
 
 ## Huskyの追加(commitした時にコードを整形してくれる)  
 $npm add -D husky lint-staged prettier   
-(react-domを入れてね。)  
 
 
 ## コード整形設定
