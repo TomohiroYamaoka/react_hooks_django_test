@@ -1,12 +1,12 @@
-from rest_framework import selializers
+from rest_framework import serializers
 from .models import Task
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
 
-class UserSerializers(selializers.ModelSerializer):
+class UserSerializers(serializers.ModelSerializer):
     class Meta:
-        model: User
+        model = User
         fields = {'id', 'username', 'password'}
         extra_kwargs = {'password': {'write_only': True, 'required': True}}
 
@@ -16,11 +16,11 @@ class UserSerializers(selializers.ModelSerializer):
             return user
 
 
-class TaskSerializer(selializers.HyperlinkModelSelializer):
+class TaskSerializer(serializers.HyperlinkedModelSerializer):
 
-    created_at = selializers.DateTimeField(
+    created_at = serializers.DateTimeField(
         format="%Y-%m-%d %H:%M", read_only=True)
-    updated_at = selializers.DateTimeField(
+    updated_at = serializers.DateTimeField(
         format="%Y-%m-%d %H:%M", read_only=True)
 
     class Meta:
